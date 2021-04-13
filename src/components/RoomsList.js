@@ -10,7 +10,7 @@ const RoomsListStyles = styled.div`
 `;
 
 
-const RoomsList = props => {
+export default function RoomsList() {
   useEffect(() => {
     axios.get('/api/rooms')
       .then(res => setRooms(res.data))
@@ -28,6 +28,4 @@ const RoomsList = props => {
     </RoomsListStyles>
   )
 };
-
-export default RoomsList;
 

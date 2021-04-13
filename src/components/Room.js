@@ -18,15 +18,20 @@ export default function Room({ room }) {
   }
 
   return (
+
     <div>
       <Card bg={statusBg(room)}>
         <Card.Body>
           <Card.Title>
             Room {room.number} - {room.room_type}
           </Card.Title>
+          <Card.Text>User ID: {room.user_id}</Card.Text>
           <Card.Text>{room.status}</Card.Text>
         </Card.Body>
       </Card>
     </div>
   );
 }
+
+// TODO: Setup a drodown list that shows room status options, and updates the backend api based on user selection (maybe with a modal to confirm selection)
+// TODO: Show the actual user assigned to the room instead of just their ID
