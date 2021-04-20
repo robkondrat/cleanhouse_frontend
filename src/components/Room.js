@@ -1,4 +1,5 @@
 import { Card } from "react-bootstrap";
+import StatusDropDown from "./StatusDropDown";
 
 export default function Room({ room }) {
   function statusBg({ status }) {
@@ -27,6 +28,7 @@ export default function Room({ room }) {
           </Card.Title>
           <Card.Text>User ID: {room.user_id}</Card.Text>
           <Card.Text>{room.status}</Card.Text>
+          <StatusDropDown room={room} />
         </Card.Body>
       </Card>
     </div>

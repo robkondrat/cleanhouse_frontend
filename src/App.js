@@ -1,12 +1,15 @@
-import React from 'react';
+import React from "react";
+import { Container } from "react-bootstrap";
 import "./App.css";
+import NavComponent from "./components/NavComponent";
 import RoomsList from "./components/RoomsList";
 
 function App() {
   return (
-    <div className="App">
+    <Container fluid>
+      <NavComponent />
       <RoomsList />
-    </div>
+    </Container>
   );
 }
 
