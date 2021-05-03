@@ -1,4 +1,5 @@
 import { Form, FormControl, Nav, Navbar, Button } from "react-bootstrap";
+import SignOut from "./SignOut";
 // import { LinkContainer } from "react-router-bootstrap";
 
 export default function NavComponent() {
@@ -11,10 +12,15 @@ export default function NavComponent() {
         <Navbar.Collapse className="justify-content-end">
           <Nav activeKey={window.location.pathname}>
             <Nav>
-              {/* <LinkContainer to="/signup"> */}
-                <Nav.Link>Signup</Nav.Link>
-              {/* </LinkContainer> */}
-              <Nav.Link href="/signin">SignIn</Nav.Link>
+              {localStorage.userId && (
+                <>
+                  <Nav.Link>Signup</Nav.Link>
+                  <SignOut />
+                </>
+              )}
+              {!localStorage.userId && (
+                <Nav.Link href="/signin">SignIn</Nav.Link>
+              )}
             </Nav>
           </Nav>
         </Navbar.Collapse>

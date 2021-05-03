@@ -1,6 +1,8 @@
 import axios from "axios";
 import styled, { keyframes } from "styled-components";
 import useForm from "../lib/useForm";
+import history from "../history";
+import { useHistory } from "react-router";
 // import Form from "./styles/Form";
 
 const loading = keyframes`
@@ -77,16 +79,20 @@ export default function SignIn() {
     email: "",
     password: "",
   });
+  let history = useHistory();
 
   function handleSubmit(e) {
     e.preventDefault();
+
     axios
     .post("/api/sessions", inputs)
     .then((response) => {
       axios.defaults.headers.common["Authorization"] =
-        "Bearer" + response.data.jwt;
+        "Bearer " + response.data.jwt;
       localStorage.setItem("jwt", response.data.jwt);
+      localStorage.setItem("userId", response.data.user_id);
       console.log(response.data);
+      history.push('/');
     })
     .catch((error) => {
       console.log(error);
